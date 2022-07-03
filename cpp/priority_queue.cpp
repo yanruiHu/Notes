@@ -8,9 +8,9 @@
 
 /**
  * 其他参考资料:
- * http://c.biancheng.net/view/480.html   C++ priority_queue(STL priority_queue)用法详解
- * http://c.biancheng.net/view/486.html   C++优先级队列存储智能指针详解
- * http://c.biancheng.net/view/7010.html  STL priority_queue底层实现（深度剖析）
+ * http://c.biancheng.net/view/480.html   [C++ priority_queue(STL priority_queue)用法详解]
+ * http://c.biancheng.net/view/486.html   [C++优先级队列存储智能指针详解]
+ * http://c.biancheng.net/view/7010.html  [STL priority_queue底层实现（深度剖析）]
  */
 
 /* 优先级队列priority_queue()是STL中的一种容器适配器，需导入#include<queue>以使用。它具备以下特点：

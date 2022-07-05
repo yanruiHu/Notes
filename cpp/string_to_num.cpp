@@ -12,6 +12,20 @@
  *  --> https://blog.csdn.net/liuweiyuxiang/article/details/89070296
  * [stringstream的用法]
  *  --> https://zhuanlan.zhihu.com/p/44435521
+ *
+ *
+ * [C语言scanf：读取从键盘输入的数据（含输入格式汇总表）]
+ * --> http://c.biancheng.net/view/1795.html
+ * [C语言scanf函数用法完全攻略]
+ * --> http://c.biancheng.net/view/160.html
+ *
+ * [c语言: scanf()高级应用]
+ * --> https://blog.csdn.net/weixin_45691686/article/details/104873266
+ * 或者:
+ * --> https://www.cnblogs.com/xkdn/p/14578899.html
+ *
+ * [scanf 官方文档]
+ * --> https://cplusplus.com/reference/cstdio/scanf/
  */
 
 #include <cstdint>

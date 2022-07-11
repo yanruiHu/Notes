@@ -1,0 +1,85 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Build C++ with glog",
+            "command": "clang++",
+            "args": [
+                "-g",
+                // "-w",  // 禁用所有警告
+                "-Weverything", // 使能所有警告
+                "-pedantic",  // 警告语言扩展
+                // "-pedantic-errors",  // 把语言扩展视作错误
+                "-std=c++14",
+                "-lglog",
+                "-O0", // 优化级别, 默认 -O0, 详见 --> https://www.coder.work/article/6476896
+                // or --> https://stackoverflow.com/questions/15548023/clang-optimization-levels
+                // or --> https://www.cnblogs.com/ClientInfra/p/15076914.html
+                "-o",
+                "${workspaceFolder}/build_/${fileBasenameNoExtension}",
+                "${file}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "clang++ and glog",
+            "problemMatcher": []
+        },
+        {
+			"label": "C/C++: g++ Build",
+			"type": "shell",
+            // "type": "cppbuild",
+			"promptOnClose": true,
+			"command": "g++",
+			"dependsOrder": "sequence",
+			"args": [
+				"-g",
+				// "-O2",
+				"-m64",
+				"-Wall",
+				"-o",
+				"${workspaceFolder}/build_/CPP_${fileBasenameNoExtension}",
+				"${file}"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+                // "$gcc"
+            ],
+			"group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "调试器生成的任务",
+		},
+		{
+            "type": "shell",
+            // "type": "cppbuild",
+            "label": "C/C++: gcc Build",
+            "command": "gcc",
+            "args": [
+                "-g",
+				// "-O2",
+				"-m64",
+				"-Wall",
+                "-o",
+                "${fileDirname}/build_/C_${fileBasenameNoExtension}",
+                "${file}",
+            ],
+            "options": {
+				"cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                // "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "调试器生成的任务"
+        }
+    ]
+}

@@ -1,0 +1,175 @@
+# LLDB 调试器的帮助
+
+/**
+ * Author: Yanrui Hu
+ * Date: 2022/07/24
+ * Description: About LLDB debuger command
+ * Version: 0.1
+ * Keywords: Debuger, LLDB, Help
+ */
+
+哪个 command 不会，可以使用 help command 命令查看帮助
+help 可以简写成 h
+
+help
+Debugger commands:
+  apropos           -- List debugger commands related to a word or subject.     [按相关词查看]
+  breakpoint        -- Commands for operating on breakpoints (see 'help b' for  [对断点进行操作]
+                       shorthand.)
+  command           -- Commands for managing custom LLDB commands.              [管理用户自定义命令]
+  disassemble       -- Disassemble specified instructions in the current        [反汇编特定的指令]
+                       target.  Defaults to the current function for the
+                       current thread and stack frame.
+  expression        -- Evaluate an expression on the current thread.  Displays  [表达式求值]
+                       any returned value with LLDB's default formatting.
+  frame             -- Commands for selecting and examing the current thread's  [选择和检查当前线程的栈帧]
+                       stack frames.
+  gdb-remote        -- Connect to a process via remote GDB server.              [gdb 远程连接]
+                       If no host is specifed, localhost is assumed.
+                       gdb-remote is an abbreviation for 'process connect
+                       --plugin gdb-remote connect://<hostname>:<port>'
+  gui               -- Switch into the curses based GUI mode.                   [切换到基于 curses 的 GUI 模式]
+  help              -- Show a list of all debugger commands, or give details    [show 所有的调试器 commands]
+                       about a specific command.
+  kdp-remote        -- Connect to a process via remote KDP server.              [kdp 远程连接]
+                       If no UDP port is specified, port 41139 is
+                       assumed.
+                       kdp-remote is an abbreviation for 'process connect
+                       --plugin kdp-remote udp://<hostname>:<port>'
+  language          -- Commands specific to a source language.                  [特定于源语言的命令]
+  log               -- Commands controlling LLDB internal logging.              [控制 LLDB 内部的日志系统]
+  memory            -- Commands for operating on memory in the current target   [在当前的目标进程上操作内存]
+                       process.
+  platform          -- Commands to manage and create platforms.                 [管理和创建平台]
+  plugin            -- Commands for managing LLDB plugins.                      [管理 LLDB 插件]
+  process           -- Commands for interacting with processes on the current   [与当前的平台上的进程交互]
+                       platform.
+  quit              -- Quit the LLDB debugger.                                  [退出 LLDB 调试器]
+  register          -- Commands to access registers for the current thread and  [访问当前线程和栈帧的寄存器]
+                       stack frame.
+  reproducer        -- Commands for manipulating reproducers. Reproducers make  [操纵再现器]
+                       it possible to capture full debug sessions with all its  {再现器可以捕获完整的调试会话及其相关的依赖}
+                       dependencies. The resulting reproducer is used to replay
+                       the debug session while debugging the debugger.
+                       Because reproducers need the whole the debug session
+                       from beginning to end, you need to launch the debugger
+                       in capture or replay mode, commonly though the command
+                       line driver.
+                       Reproducers are unrelated record-replay debugging, as
+                       you cannot interact with the debugger during replay.
+  script            -- Invoke the script interpreter with provided code and     [启动脚本解释器（执行代码或者进入交互模式）]
+                       display any results.  Start the interactive interpreter
+                       if no code is supplied.
+  session           -- Commands controlling LLDB session.                       [控制 LLDB 会话]
+  settings          -- Commands for managing LLDB settings.                     [管理 LLDB 设置]
+  source            -- Commands for examining source code described by debug    [检查源代码]
+                       information for the current target process.
+  statistics        -- Print statistics about a debugging session               [打印关于一个调试会话的统计数据]
+  target            -- Commands for operating on debugger targets.              [对调试器目标进行操作]
+  thread            -- Commands for operating on one or more threads in the     [对当前进程的一个或者多个线程进行操作]
+                       current process.
+  trace             -- Commands for loading and using processor trace           [用于加载和使用处理器的跟踪信息]
+                       information.
+  type              -- Commands for operating on the type system.               [对类型系统进行操作]
+  version           -- Show the LLDB debugger version.                          [显示 LLDB 调试器版本]
+  watchpoint        -- Commands for operating on watchpoints.                   [对观察点进行操作]
+Current command abbreviations (type 'help command alias' for more info):
+  add-dsym  -- Add a debug symbol file to one of the target's current modules
+               by specifying a path to a debug symbols file or by using the
+               options to specify a module.
+  attach    -- Attach to process by ID or name.                                 [附加到进程上（通过进程 ID 或者进程名）]
+  b         -- Set a breakpoint using one of several shorthand formats.         [用简写格式设置断点]
+  bt        -- Show the current thread's call stack.  Any numeric argument      [显示当前线程的调用栈] {eg: bt 3 ; bt all}
+               displays at most that many frames.  The argument 'all' displays  {数字参数表示至多显示的栈帧的个数}
+               all threads.  Use 'settings set frame-format' to customize the   {all 表示显示所有线程}
+               printing of individual frames and 'settings set thread-format'   {可以通过 setting 客制化显示内容}
+               to customize the thread header.
+  c         -- Continue execution of all threads in the current process.        [继续执行当前进程的所有线程] == continue
+  call      -- Evaluate an expression on the current thread.  Displays any      [在当前线程上对表达式进行求值] == expression
+               returned value with LLDB's default formatting.
+  continue  -- Continue execution of all threads in the current process.        [继续执行当前进程的所有线程] == process continue
+  detach    -- Detach from the current target process.                          [从当前目标进程分离] == process detach
+  di        -- Disassemble specified instructions in the current target.        [反汇编特定的指令] == disassemble
+               Defaults to the current function for the current thread and
+               stack frame.
+  dis       -- Disassemble specified instructions in the current target.        [反汇编特定的指令] == disassemble
+               Defaults to the current function for the current thread and
+               stack frame.
+  display   -- Evaluate an expression at every stop (see 'help target           [在每次 stop 时求值] {使用 undisplay 进行解除}
+               stop-hook'.)
+  down      -- Select a newer stack frame.  Defaults to moving one frame, a     [选择一个较新栈帧] {与 up 相对}
+               numeric argument can specify an arbitrary number.                {默认为移动一帧，数值参数可以指定任意数字}
+  env       -- Shorthand for viewing and setting environment variables.         [用于查看和设置环境变量]
+  exit      -- Quit the LLDB debugger.                                          [退出调试器] == quit
+  f         -- Select the current stack frame by index from within the current  [从当前线程中按索引选择当前堆栈帧] == frame select
+               thread (see 'thread backtrace'.)
+  file      -- Create a target using the argument as the main executable.       [使用参数作为主可执行文件创建目标] == target create
+  finish    -- Finish executing the current stack frame and stop after          == thread step-out
+               returning.  Defaults to current thread unless specified.
+  history   -- Dump the history of commands in this session.                    == session history
+               Commands in the history list can be run again using "!<INDEX>".
+               "!-<OFFSET>" will re-run the command that is <OFFSET> commands
+               from the end of the list (counting the current command).
+  image     -- Commands for accessing information for one or more target        == target modules
+               modules.
+  j         -- Set the program counter to a new address.                        [设置程序计数器为一个新地址] == jump
+  jump      -- Set the program counter to a new address.
+  kill      -- Terminate the current target process.                            [终止当前目标进程] == process kill
+  l         -- List relevant source code using one of several shorthand formats. == l
+  list      -- List relevant source code using one of several shorthand formats.[列出相关源码，使用简写格式]
+  n         -- Source level single step, stepping over calls.  Defaults to      [源码级别的单步执行，跳过函数调用] == next
+               current thread unless specified.                                 {默认当前线程， 也可指定}
+  next      -- Source level single step, stepping over calls.  Defaults to      [源码级别的单步执行，跳过函数调用]
+               current thread unless specified.
+  nexti     -- Instruction level single step, stepping over calls.  Defaults to [指令级别的单步执行，跳过函数调用]
+               current thread unless specified.                                 {默认当前线程， 也可指定}
+  ni        -- Instruction level single step, stepping over calls.  Defaults to [指令级别的单步执行，跳过函数调用] == nexti
+               current thread unless specified.
+  p         -- Evaluate an expression on the current thread.  Displays any      [在当前线程上对表达式进行求值] == expression --
+               returned value with LLDB's default formatting.
+  parray    -- parray <COUNT> <EXPRESSION> -- lldb will evaluate EXPRESSION to [计算表达式的值以获取指向数组的类型化指针] == expression -Z %1   --
+               get a typed-pointer-to-an-array in memory, and will display     [, 之后显示 COUNT 个那种类型的元素]
+               COUNT elements of that type from the array.
+  po        -- Evaluate an expression on the current thread.  Displays any     [与 print 的区别是：输出格式由类型作者设置]
+               returned value with formatting controlled by the type's author.
+  poarray   -- poarray <COUNT> <EXPRESSION> -- lldb will evaluate EXPRESSION to [和 parray 差不多， 只是使用 po 显示每个元素]
+               get the address of an array of COUNT objects in memory, and will
+               call po on them.
+  print     -- Evaluate an expression on the current thread.  Displays any      [在当前线程上对表达式进行求值] == expression --
+               returned value with LLDB's default formatting.
+  q         -- Quit the LLDB debugger.                                          [退出调试器] == quit
+  r         -- Launch the executable in the debugger.                           [在调试器中启动可执行文件] == run
+  rbreak    -- Sets a breakpoint or set of breakpoints in the executable.       [在可执行文件中设置一个断点或者一组断点] == breakpoint set -r %1
+  re        -- Commands to access registers for the current thread and stack    [访问当前线程和栈帧的寄存器] == register
+               frame.
+  run       -- Launch the executable in the debugger.                           [在调试器中启动可执行文件]
+  s         -- Source level single step, stepping into calls.  Defaults to      [源码级别的单步执行，跳入函数调用] == step
+               current thread unless specified.                                 {默认当前线程， 也可指定}
+  shell     -- Run a shell command on the host.                                 [在 host 中执行 shell 命令]
+  si        -- Instruction level single step, stepping into calls.  Defaults to [指令级别的单步执行，跳入函数调用] == stepi
+               current thread unless specified.
+  sif       -- Step through the current block, stopping if you step directly    [单步执行当前块，如果直接单步执行其名称与 TargetFunctionName 匹配的函数，则停止]
+               into a function whose name matches the TargetFunctionName.
+  step      -- Source level single step, stepping into calls.  Defaults to      [源码级别的单步执行，跳入函数调用]
+               current thread unless specified.
+  stepi     -- Instruction level single step, stepping into calls.  Defaults to [指令级别的单步执行，跳入函数调用]
+               current thread unless specified.
+  t         -- Change the currently selected thread.                            [改变当前选中的线程] == thread select
+  tbreak    -- Set a one-shot breakpoint using one of several shorthand formats.[设置一次性的断点，使用简写格式]
+  undisplay -- Stop displaying expression at every stop (specified by stop-hook {与 display 相对}
+               index.)
+  up        -- Select an older stack frame.  Defaults to moving one frame, a    [选择一个较旧栈帧]{与 down 相对}
+               numeric argument can specify an arbitrary number.
+  v         -- Show variables for the current stack frame. Defaults to all      [显示当前栈帧的变量] == frame variable == var
+               arguments and local variables in scope. Names of argument,
+               local, file static and file global variables can be specified.
+  var       -- Show variables for the current stack frame. Defaults to all      [显示当前栈帧的变量] == frame variable
+               arguments and local variables in scope. Names of argument,
+               local, file static and file global variables can be specified.
+  vo        -- Show variables for the current stack frame. Defaults to all      [显示当前栈帧的变量] == frame variable -O
+               arguments and local variables in scope. Names of argument,       {Display using a language-specific description API, if possible.}
+               local, file static and file global variables can be specified.
+  x         -- Read from the memory of the current target process.              [从当前目标线程的内存中读取] == memory read
+Current user-defined commands:
+  show_debug_info -- For more information run 'help show_debug_info'
+For more information on any command, type 'help <command-name>'.

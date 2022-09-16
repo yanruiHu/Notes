@@ -53,7 +53,8 @@ void putV(const std::vector<T>& vec, const char* name);
 
 #define STRINGLIZE(ivalue) (printf(#ivalue " is: %d\n", ivalue))
 
-#define PUTI(ival) (printf(#ival ": %d\n", ival))
+#define PUTI(i64val) \
+  (printf("%d: $" #i64val ": %ld \n", __LINE__, int64_t(i64val)))
 
 #define STRLIZE(variable_name) (#variable_name)
 

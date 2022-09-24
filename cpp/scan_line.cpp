@@ -20,9 +20,9 @@ using std::vector;
 
 class Solution {
  private:
-  vector<tuple<int, int>>* _lines;
+  static vector<tuple<int, int>>* _lines;
 
-  void filter(vector<int>& poses, int a, int b) {
+  static void filter(vector<int>& poses, int a, int b) {
     if (poses[0] <= a && b <= poses[2]) {
       _lines->emplace_back(poses[1], poses[3]);
     }

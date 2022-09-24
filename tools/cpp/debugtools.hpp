@@ -51,6 +51,8 @@ void putV(const std::vector<T>& vec, const char* name);
 
 #define LOV(variable) (LOG(INFO) << #variable ": " << variable)
 
+#define ELOG(exp) (LOG(INFO) << #exp ": " << std::boolalpha << exp)
+
 #define STRINGLIZE(ivalue) (printf(#ivalue " is: %d\n", ivalue))
 
 #define PUTI(i64val) \

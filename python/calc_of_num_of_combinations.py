@@ -1,3 +1,13 @@
+"""
+Author: Yanrui Hu
+Date: 2022-09-xx
+Description: Two implementations of C(n, m)
+Keywords: `combination numbers`, Magic
+Reason:
+下面的这些代码，是在做力扣题目时整理的，特别感谢cjh的帮助
+"""
+
+
 from collections import defaultdict
 import collections
 import functools
@@ -22,6 +32,7 @@ def C(n: int, m: int) -> int:
 
 class Solution:
     def longestNiceSubarray(self, nums: List[int]) -> int:
+        """ https://leetcode.cn/problems/longest-nice-subarray/ """
         l = 0
         t = [0 for _ in range(32)]
         ans = 1

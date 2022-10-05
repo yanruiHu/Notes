@@ -55,8 +55,9 @@ class Solution2 {
  public:
   int deleteString(string s) {
     int n = s.length();
-    if (equal(s.begin() + 1, s.end(), s.begin()))  // 特判全部相同的情况
+    if (equal(s.begin() + 1, s.end(), s.begin())) {  // 特判全部相同的情况
       return n;
+    }
     int lcp[n + 1][n + 1];  // lcp[i][j] 表示 s[i:] 和 s[j:] 的最长公共前缀
     memset(lcp, 0, sizeof(lcp));
     for (int i = n - 1; i >= 0; --i) {
@@ -67,9 +68,11 @@ class Solution2 {
     int f[n];
     memset(f, 0, sizeof(f));
     for (int i = n - 1; i >= 0; --i) {
-      for (int j = 1; i + j * 2 <= n; ++j)
-        if (lcp[i][i + j] >= j)  // 说明 s[i:i+j] == s[i+j:i+j*2]
+      for (int j = 1; i + j * 2 <= n; ++j) {
+        if (lcp[i][i + j] >= j) {  // 说明 s[i:i+j] == s[i+j:i+j*2]
           f[i] = max(f[i], f[i + j]);
+        }
+      }
       ++f[i];
     }
     return f[0];

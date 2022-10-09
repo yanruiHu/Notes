@@ -10,7 +10,7 @@ Version: 0.0.1
 
 class Solution:
     def canTransform(self, start: str, end: str) -> bool:
-        ''' 777. 在LR字符串中交换相邻字符 '''
+        """ 777. 在LR字符串中交换相邻字符 """
         # cnt1of_x = start.count('X')
         # cnt2of_x = end.count('X')
         #
@@ -40,3 +40,15 @@ class Solution:
                 return False
             i += 1
             j += 1
+
+
+    def scoreOfParentheses(self, s: str) -> int:
+        """ 856. Score of Parentheses """
+        st = [0]
+        for c in s:
+            if c == '(':
+                st.append(0)
+            else:
+                v = st.pop()
+                st[-1] += max(2 * v, 1)
+        return st[-1]

@@ -23,6 +23,7 @@ class Solution:
             return res
         return f(0, 0, True, False)
 
+
 # 作者：endlesscheng
 # 链接：https://leetcode.cn/problems/count-special-integers/solution/shu-wei-dp-mo-ban-by-endlesscheng-xtgx/
 # 来源：力扣（LeetCode）
@@ -50,6 +51,7 @@ class Solution:
                 res += f(i + 1, is_limit and d == up, True)
             return res
         return f(0, True, False)
+
 
 # 作者：endlesscheng
 # 链接：https://leetcode.cn/problems/numbers-at-most-n-given-digit-set/solution/shu-wei-dp-tong-yong-mo-ban-xiang-xi-zhu-e5dg/
